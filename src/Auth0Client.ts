@@ -1082,8 +1082,8 @@ export default class Auth0Client {
       nonceIn,
       code_challenge,
       options.redirect_uri ||
-        this.options.redirect_uri ||
-        window.location.origin
+      this.options.redirect_uri ||
+      window.location.origin
     );
 
     const orgIdHint = this.cookieStorage.get<string>(this.orgHintCookieName);
@@ -1188,6 +1188,8 @@ export default class Auth0Client {
       })
     );
 
+    console.log("debug token:")
+    console.log(!cache.refresh_token)
     // If you don't have a refresh token in memory
     // and you don't have a refresh token in web worker memory
     // fallback to an iframe.
